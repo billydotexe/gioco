@@ -2,13 +2,19 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Bullet
+    - Drop
+    - DroppedBullet
+    - DroppedHeart
     - Enemy
+    - EnemyBullet
+    - EnemyShooting
     - HealthBar
     - Manager
     - Melee
     - Menu
     - Movements
     - MovementsEnemy1
+    - MovementsEnemy2
     - PauseMenu
     - Player
     - PlayerCollision
@@ -56,21 +62,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11202}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 11646}
     - Class: 114
-      Script: {instanceID: 12210}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13402}
     - Class: 114
-      Script: {instanceID: 13684}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 14300}
+      Script: {instanceID: 14434}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -121,45 +127,57 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11202}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11450}
     - Class: 114
-      Script: {instanceID: 11438}
+      Script: {instanceID: 11534}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11640}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 11646}
     - Class: 114
-      Script: {instanceID: 12210}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12286}
+      Script: {instanceID: 12398}
     - Class: 114
-      Script: {instanceID: 12596}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 12724}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 12726}
+      Script: {instanceID: 12838}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12954}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13364}
+      Script: {instanceID: 13102}
     - Class: 114
-      Script: {instanceID: 13442}
+      Script: {instanceID: 13484}
     - Class: 114
-      Script: {instanceID: 13652}
+      Script: {instanceID: 13564}
     - Class: 114
-      Script: {instanceID: 13684}
+      Script: {instanceID: 13778}
     - Class: 114
-      Script: {instanceID: 14090}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 14300}
+      Script: {instanceID: 13866}
+    - Class: 114
+      Script: {instanceID: 14204}
+    - Class: 114
+      Script: {instanceID: 14220}
+    - Class: 114
+      Script: {instanceID: 14434}
+    - Class: 114
+      Script: {instanceID: 14496}
+    - Class: 114
+      Script: {instanceID: 21724}
+    - Class: 114
+      Script: {instanceID: 26536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -287,7 +305,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 896f4ddc5cbd3f6fa8a70c332cddb47a
+      Hash: 1d845b2535654b2525956159b2714d86
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
     className: SpriteShapeController
@@ -303,6 +321,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 523ce309f50d9eee6a8fc0e2f86c9c97
+    assemblyName: Unity.2D.SpriteShape.Runtime.dll
+    namespaceName: 
+    className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -353,7 +377,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ef5c43f921427d03730f6ea4c848f07d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
@@ -389,6 +413,12 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 5f170942ee57c7a568f5bcfc7521adea
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools
+    className: EnumerableTestState
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -419,7 +449,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: be54004dfc02d9a36b48c27af3692a1c
+      Hash: 186bcd240d9c35e76cb55b17c2967665
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Manager
@@ -486,6 +516,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Drop
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
@@ -515,7 +551,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 736452a20b33d2d0016248e0273538da
+      Hash: 1c92203e6c6cc4206eb2988de41139da
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shooting
@@ -533,7 +569,7 @@ ScriptsOnlyBuild:
     className: SpriteSkin
   - hash:
       serializedVersion: 2
-      Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
+      Hash: f64fd37da5cb89243ec68b5026d70bb8
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: InputField
@@ -551,7 +587,7 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 35a9693c388776aaf487636491a20f11
+      Hash: a9f049c3dc82bb36fdb142e4d6a2658d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
@@ -629,10 +665,16 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
+      Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Dropped
   - hash:
       serializedVersion: 2
       Hash: 83e769eee07fc231384c812eedbb8224
@@ -713,7 +755,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 4ef0f7d42cdb13479386e1f049c315aa
+      Hash: 9726bc46e15d44429bd38fb013657f1e
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
@@ -765,8 +807,20 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DroppedBullet
+  - hash:
+      serializedVersion: 2
+      Hash: 7b27c87d5bbeeb1801942cbcc63ac1c1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DroppedHeart
   platform: 19
   scenePathNames:
   - Assets/Scenes/menu.unity
   - Assets/Scenes/test1.unity
-  playerPath: C:/Users/peppe/Desktop/420 LMAO/prova1.exe
+  playerPath: /home/billy/Desktop/giokok/GIOCO/prova1.exe

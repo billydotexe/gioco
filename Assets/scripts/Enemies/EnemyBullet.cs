@@ -19,7 +19,8 @@ public class EnemyBullet : MonoBehaviour
     {
 
         //the bullets shouldn't hit the player, themselves or other weapons
-        if (collision.attachedRigidbody.tag != "Enemy")
+        if (collision?.attachedRigidbody != null
+            &&collision.attachedRigidbody.tag != "Enemy")
         {
             //now let's check if the bullet hit an enemy
             if (collision?.gameObject?.GetComponent<Player>() != null)

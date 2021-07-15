@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Drop : MonoBehaviour
 {
-    public List<GameObject> drops;
-    public List<int> percentage;
 
     void Start()
     {
@@ -14,6 +12,6 @@ public class Drop : MonoBehaviour
 
     public void drop()
     {
-        //for
+        
     }
 }

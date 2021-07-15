@@ -19,7 +19,11 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         
         //the bullets shouldn't hit the player, themselves or other weapons
-        if (collision.attachedRigidbody.tag != "Weapon" && collision.attachedRigidbody.tag != "Player"){
+        if (collision?.attachedRigidbody != null
+            && collision.attachedRigidbody.tag == "Enemy" 
+            && collision.attachedRigidbody.tag != "Player")
+        {
+        
             //now let's check if the bullet hit an enemy
             if(collision?.gameObject?.GetComponent<Enemy>() != null)
             {

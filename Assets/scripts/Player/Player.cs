@@ -17,8 +17,12 @@ public class Player : MonoBehaviour
     public int hpcap = 6;
     int hpmax = 20;
 
-    public static bool isDead = false;
 
+    public static bool isFullHealth = true;
+    public static bool isDead = false;
+    static bool updateAmmo = false;
+    static bool toHeal = false;
+    static int healing = 0;
     public delegate void HealthEvent(int hp, int max);
 
     public static event HealthEvent OnHealthUpdate;
@@ -30,7 +34,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        isFullHealth = hp == hpcap;
+
         if (hp <= 0) Dead();
+        
+        if(updateAmmo) 
+        {
+            updateAmmo  = false;
+            ammo += 10;
+        }
+        if(toHeal) 
+        {
+            toHeal  = false;
+            hp += healing;
+            healing = 0;
+            if (hp > hpcap) hp = hpcap;
+            if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
+            Debug.Log($"{hp}/{hpcap}");
+        }
     }
 
     private void Dead()
@@ -41,16 +62,9 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public bool IsFullHealth()
-    {
-        if (hp == hpcap) return true;
-        return false;
-    }
-
     public bool IsMaxHealth()
     {
-        if (hpcap == hpmax) return true;
-        return false;
+        return (hpcap == hpmax);
     }
     
     public void HpUp(int add)
@@ -68,20 +82,6 @@ public class Player : MonoBehaviour
         if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
     }
 
-    public void Heal(int add)
-    {
-        hp += add;
-        if (hp > hpmax) hp = hpmax;
-        if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
-    }
-
-    public void Heal()
-    {
-        hp += 1;
-        if (hp > hpmax) hp = hpmax;
-        if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
-    }
-
     public void Damage(int sub)
     {
         if (sub > 2) sub = 2;
@@ -94,6 +94,15 @@ public class Player : MonoBehaviour
     {
         hp -= 1;
         if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
+    }
+
+    public static void heal(int h){
+        healing = h;
+        toHeal = true;
+    }
+
+    public static void addAmmo(){
+        updateAmmo = true;
     }
 
 }

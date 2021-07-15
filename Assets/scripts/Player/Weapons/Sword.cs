@@ -9,7 +9,10 @@ public class Sword : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         //the sword shouldn't hit the player, themselves or other weapons
-        if (collision.attachedRigidbody.tag != "Weapon" && collision.attachedRigidbody.tag != "Player"){
+        if (collision?.attachedRigidbody != null
+            && collision.attachedRigidbody.tag == "Enemy" 
+            && collision.attachedRigidbody.tag != "Player")
+        {
 
             if (collision?.gameObject?.GetComponent<Enemy>() != null)
             {

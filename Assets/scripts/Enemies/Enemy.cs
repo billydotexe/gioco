@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private void Dead()
     {
         Manager.Score();
+        Manager.spawnItem(transform.position);
         GameObject deadEnemy = Instantiate(deathAnimation, transform.position, gameObject.transform.rotation);
         Destroy(deadEnemy, .5f);
         Destroy(gameObject);
@@ -29,4 +30,5 @@ public class Enemy : MonoBehaviour
         if (sub <= 0) sub = 1;
         hp -= sub;
     }
+    
 }

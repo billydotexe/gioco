@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour
 
     void Display(int hp, int max)
     {
-        bool half = hp % 2 == 1 ? true : false;
+        bool half = hp % 2 == 1;
         int toAdd = (max / 2) - healthBar.Count;
         for (int i = 0; i < toAdd; i++)
         {
@@ -57,9 +57,6 @@ public class HealthBar : MonoBehaviour
             {
                 AddHeart(i, emptyHeart);
             }
-        }
-        {
-            
         }
         if (half)
         {

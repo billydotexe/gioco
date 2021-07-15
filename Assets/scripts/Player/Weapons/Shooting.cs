@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public int ammo;
+    public Player player;
     public Transform firePoint;
     public GameObject[] bulletPrefabs;
     public GameObject[] bulletDestroy;
@@ -15,14 +15,14 @@ public class Shooting : MonoBehaviour
     
     void Start()
     {
-        ammo = gameObject.GetComponent<Player>().ammo;
-        Manager.UpdateAmmo(ammo);
+        player = gameObject.GetComponent<Player>();
+        Manager.UpdateAmmo(player.ammo);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && !PauseMenu.pause && ammo > 0)
+        if(Input.GetButtonDown("Fire1") && !PauseMenu.pause && player.ammo > 0)
         {
             Shoot();
         }
@@ -31,8 +31,8 @@ public class Shooting : MonoBehaviour
 
     //shooting logic
     void Shoot(){
-        ammo--;
-        Manager.UpdateAmmo(ammo);
+        player.ammo--;
+        Manager.UpdateAmmo(player.ammo);
         //select one of the posible sprites
         num = Random.Range(0, bulletPrefabs.Length);
         bulletPrefab = bulletPrefabs[num];
