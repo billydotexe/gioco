@@ -11,7 +11,7 @@ public class Shooting : MonoBehaviour
     private GameObject bulletPrefab;
     private int num;
     public float bulletForce = 10f;
-    float range = .5f;
+    public float range = .5f;
     
     void Start()
     {

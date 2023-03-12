@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     static bool updateAmmo = false;
     static bool toHeal = false;
     static int healing = 0;
-    public delegate void HealthEvent(int hp, int max);
 
+    public delegate void HealthEvent(int hp, int max);
     public static event HealthEvent OnHealthUpdate;
 
     void Start()
@@ -52,6 +52,16 @@ public class Player : MonoBehaviour
             if (OnHealthUpdate != null) OnHealthUpdate(hp, hpcap);
             Debug.Log($"{hp}/{hpcap}");
         }
+    }
+
+    private void OnEnable()
+    {
+        MapManager.repositionPlayer += ResetPosition;
+    }
+
+    private void OnDisable()
+    {
+        MapManager.repositionPlayer -= ResetPosition;
     }
 
     private void Dead()
@@ -105,4 +115,9 @@ public class Player : MonoBehaviour
         updateAmmo = true;
     }
 
+
+    public void ResetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+    }
 }

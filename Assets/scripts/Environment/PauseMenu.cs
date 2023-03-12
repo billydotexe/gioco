@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
     private void Resume()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1;
         pause = false;
         canvas.SetActive(false);
     }

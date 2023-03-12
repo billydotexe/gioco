@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour
 
     private void Play()
     {
-        SceneManager.LoadScene("test1", LoadSceneMode.Single);
+        SceneManager.LoadScene("testRooms", LoadSceneMode.Single);
     }
 
     private void Exit()

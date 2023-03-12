@@ -13,6 +13,7 @@ public class Manager : MonoBehaviour
     static bool updateScore = true;
     static bool drop = false;
     static Vector3 dropPosition;
+    public GameObject dropContainer;
     Vector3 offset = new Vector3(0, 0, 0);
     public Text FPSText;
     public Text scoreText;
@@ -41,13 +42,16 @@ public class Manager : MonoBehaviour
             {
                 PauseMenu.canvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
             }
             else
             {
                 PauseMenu.canvas.SetActive(false);
                 Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 1;
+
             }
-        
+
         }
 
         if (updateScore)
@@ -77,7 +81,8 @@ public class Manager : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             if(Random.Range(0, itemsDropRate[0]) <= itemsDropRate[i]){
-                Instantiate(items[i], dropPosition+offset, Quaternion.identity);
+                GameObject droppedItem = Instantiate(items[i], dropPosition+offset, Quaternion.identity) as GameObject;
+                droppedItem.transform.parent = dropContainer.transform;
                 offset += new Vector3(0, 1, 0);
             }
         }

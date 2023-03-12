@@ -13,11 +13,11 @@ public class HealthBar : MonoBehaviour
     public Sprite emptyHeart;
 
     List<Image> healthBar = new List<Image>();
-    Vector2[] positions = {new Vector2(0, 0), new Vector2(20, 0),
+    public Vector2[] positions = {new Vector2(0, 0), new Vector2(20, 0),
                             new Vector2(40, 0), new Vector2(60, 0),
                             new Vector2(80, 0), new Vector2(0, -20),
                             new Vector2(20, -20), new Vector2(40, -20),
-                            new Vector2(60, -20), new Vector2(80, -20),};
+                            new Vector2(60, -20), new Vector2(80, -20)};
 
     public GameObject player;
 
@@ -41,7 +41,8 @@ public class HealthBar : MonoBehaviour
             heartGameObject.transform.SetParent(transform);
             heartGameObject.transform.localPosition = Vector3.zero;
             heartGameObject.GetComponent<RectTransform>().anchoredPosition = positions[healthBar.Count];
-            heartGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 0.6f);
+            heartGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1f, 1f);
+            heartGameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
             Image heartImage = heartGameObject.GetComponent<Image>();
             heartImage.sprite = emptyHeart;

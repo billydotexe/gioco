@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public float range = .5f;
     public int hp;
 
+    public delegate void DeathEvent();
+    public static event DeathEvent DeathUpdate;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +26,8 @@ public class Enemy : MonoBehaviour
         GameObject deadEnemy = Instantiate(deathAnimation, transform.position, gameObject.transform.rotation);
         Destroy(deadEnemy, .5f);
         Destroy(gameObject);
+
+        if (DeathUpdate != null) DeathUpdate();
     }
 
     public void Damage(int sub)
